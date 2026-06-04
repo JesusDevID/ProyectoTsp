@@ -65,7 +65,7 @@ const productos = [
 },
 
 {
-    nombre:"Motorola Moto G Play",
+    nombre:"Moto G Play",
     categoria:"celulares",
     precio:290000,
     stock:20,
@@ -77,7 +77,7 @@ const productos = [
     categoria:"celulares",
     precio:880000,
     stock:10,
-    imagen:"https://images-na.ssl-images-amazon.com/images/I/518rwCXZ0SL._AC_UL165_SR165,165_.jpg"
+    imagen:"https://m.media-amazon.com/images/I/61H3jeeHnUL._AC_UY327_FMwebp_QL65_.jpg"
 },
 
 {
@@ -94,6 +94,22 @@ const productos = [
     precio:440000,
     stock:22,
     imagen:"https://m.media-amazon.com/images/I/51Aux7GAksL._AC_UY327_FMwebp_QL65_.jpg"
+},
+
+{
+    nombre:"XIAOMI Redmi Note 14",
+    categoria:"celulares",
+    precio:800000,
+    stock:5,
+    imagen:"https://m.media-amazon.com/images/I/61RvhprA3qL._AC_UY327_FMwebp_QL65_.jpg"
+},
+
+{
+    nombre:"Dell 16",
+    categoria:"laptops",
+    precio:2100000,
+    stock:16,
+    imagen:"https://m.media-amazon.com/images/I/71WB564uxyL._AC_UY327_FMwebp_QL65_.jpg"
 }
 
 ];
