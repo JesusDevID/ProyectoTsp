@@ -110,6 +110,22 @@ const productos = [
     precio:2100000,
     stock:16,
     imagen:"https://m.media-amazon.com/images/I/71WB564uxyL._AC_UY327_FMwebp_QL65_.jpg"
+},
+
+{
+    nombre:"LG Velvet",
+    categoria:"celulares",
+    precio:540000,
+    stock:3,
+    imagen:"https://m.media-amazon.com/images/I/61l2eRROEwL._AC_UY327_FMwebp_QL65_.jpg"
+},
+
+{
+    nombre:"Dell Latitude 5400",
+    categoria:"laptops",
+    precio:860000,
+    stock:13,
+    imagen:"https://m.media-amazon.com/images/I/61PkGRSw05L._AC_UY327_FMwebp_QL65_.jpg"
 }
 
 ];
