@@ -60,7 +60,7 @@ const productos = [
     nombre:"HP Chromebook 14 Laptop",
     categoria:"laptops",
     precio:790000,
-    stock:4,
+    stock:2,
     imagen:"https://m.media-amazon.com/images/I/81b6IIclRfS._AC_UY327_FMwebp_QL65_.jpg"
 },
 
@@ -84,7 +84,7 @@ const productos = [
     nombre:"Galaxy Chromebook",
     categoria:"laptops",
     precio:680000,
-    stock:14,
+    stock:17,
     imagen:"https://m.media-amazon.com/images/I/51Lko54--JL._AC_UY327_FMwebp_QL65_.jpg"
 },
 
@@ -129,11 +129,11 @@ const productos = [
 },
 
 {
-    nombre:"Galaxy XCover6 Pro",
+    nombre:"Samsung Galaxy Z Fold 5",
     categoria:"celulares",
-    precio:690000,
-    stock:11,
-    imagen:"https://m.media-amazon.com/images/I/61wOkVzeqBL._AC_UY327_FMwebp_QL65_.jpg"
+    precio:5120000,
+    stock:8,
+    imagen:"https://m.media-amazon.com/images/I/518OMBP4J7L._AC_UY327_FMwebp_QL65_.jpg"
 },
 
 {
@@ -142,6 +142,22 @@ const productos = [
     precio:2510000,
     stock:13,
     imagen:"https://m.media-amazon.com/images/I/71Q-k94XjBL._AC_UY327_FMwebp_QL65_.jpg"
+},
+
+{
+    nombre:"HONOR 200 Dual-SIM",
+    categoria:"celulares",
+    precio:1540000,
+    stock:3,
+    imagen:"https://m.media-amazon.com/images/I/61AQkbAo6lL._AC_UY327_FMwebp_QL65_.jpg"
+},
+
+{
+    nombre:"Microsoft Surface",
+    categoria:"laptops",
+    precio:3500000,
+    stock:5,
+    imagen:"https://m.media-amazon.com/images/I/61cVvg6zcWL._AC_UY327_FMwebp_QL65_.jpg"
 }
 
 ];
