@@ -113,11 +113,11 @@ const productos = [
 },
 
 {
-    nombre:"LG Velvet",
+    nombre:"Motorola Edge",
     categoria:"celulares",
-    precio:540000,
+    precio:730000,
     stock:3,
-    imagen:"https://m.media-amazon.com/images/I/61l2eRROEwL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://m.media-amazon.com/images/I/81Vo6cSAWbL._AC_UY327_FMwebp_QL65_.jpg"
 },
 
 {
@@ -126,6 +126,22 @@ const productos = [
     precio:860000,
     stock:13,
     imagen:"https://m.media-amazon.com/images/I/61PkGRSw05L._AC_UY327_FMwebp_QL65_.jpg"
+},
+
+{
+    nombre:"Galaxy XCover6 Pro",
+    categoria:"celulares",
+    precio:690000,
+    stock:11,
+    imagen:"https://m.media-amazon.com/images/I/61wOkVzeqBL._AC_UY327_FMwebp_QL65_.jpg"
+},
+
+{
+    nombre:"Galaxy Book4",
+    categoria:"laptops",
+    precio:2510000,
+    stock:13,
+    imagen:"https://m.media-amazon.com/images/I/71Q-k94XjBL._AC_UY327_FMwebp_QL65_.jpg"
 }
 
 ];
