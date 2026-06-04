@@ -46,7 +46,7 @@ const productos = [
     precio:2900000,
     stock:15,
     imagen:"https://picsum.photos/400/300?6"
-}
+},
 
 {
     nombre:"Motorola Moto G Play",
