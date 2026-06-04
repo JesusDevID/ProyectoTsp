@@ -5,7 +5,7 @@ const productos = [
     categoria:"celulares",
     precio:4500000,
     stock:10,
-    imagen:"https://picsum.photos/400/300?1"
+    imagen:"https://m.media-amazon.com/images/I/51GOhI8bhHL._AC_UY327_FMwebp_QL65_.jpg"
 },
 
 {
@@ -13,7 +13,7 @@ const productos = [
     categoria:"celulares",
     precio:3800000,
     stock:8,
-    imagen:"https://picsum.photos/400/300?2"
+    imagen:"https://m.media-amazon.com/images/I/61qvRagAn9L._AC_UY327_FMwebp_QL65_.jpg"
 },
 
 {
@@ -21,7 +21,7 @@ const productos = [
     categoria:"laptops",
     precio:8500000,
     stock:4,
-    imagen:"https://picsum.photos/400/300?3"
+    imagen:"https://m.media-amazon.com/images/I/61PfWcnielL._AC_UY327_FMwebp_QL65_.jpg"
 },
 
 {
@@ -29,7 +29,7 @@ const productos = [
     categoria:"laptops",
     precio:6200000,
     stock:6,
-    imagen:"https://picsum.photos/400/300?4"
+    imagen:"https://m.media-amazon.com/images/I/61N9qYL9TDL._AC_UY327_FMwebp_QL65_.jpg"
 },
 
 {
@@ -37,7 +37,7 @@ const productos = [
     categoria:"laptops",
     precio:5800000,
     stock:7,
-    imagen:"https://picsum.photos/400/300?5"
+    imagen:"https://m.media-amazon.com/images/I/71tdtRCCHbL._AC_UY327_FMwebp_QL65_.jpg"
 },
 
 {
@@ -45,7 +45,23 @@ const productos = [
     categoria:"celulares",
     precio:2900000,
     stock:15,
-    imagen:"https://picsum.photos/400/300?6"
+    imagen:"https://m.media-amazon.com/images/I/51ib9steRUL.jpg"
+},
+
+{
+    nombre:"Lenovo IdeaPad Slim 3i",
+    categoria:"laptops",
+    precio:2450000,
+    stock:10,
+    imagen:"https://m.media-amazon.com/images/I/51CihH6I+2L._AC_UY327_FMwebp_QL65_.jpg"
+},
+
+{
+    nombre:"HP Chromebook 14 Laptop",
+    categoria:"laptops",
+    precio:790000,
+    stock:4,
+    imagen:"https://m.media-amazon.com/images/I/81b6IIclRfS._AC_UY327_FMwebp_QL65_.jpg"
 },
 
 {
@@ -79,6 +95,7 @@ const productos = [
     stock:22,
     imagen:"https://m.media-amazon.com/images/I/51Aux7GAksL._AC_UY327_FMwebp_QL65_.jpg"
 }
+
 ];
 
 const contenedor = document.getElementById("productos");
