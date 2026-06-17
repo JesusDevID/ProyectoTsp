@@ -29,7 +29,7 @@ const productos = [
     categoria:"laptops",
     precio:6200000,
     stock:6,
-    imagen:"https://m.media-amazon.com/images/I/61N9qYL9TDL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://dlcdnwebimgs.asus.com/gain/68E55D05-BB23-4998-B3D4-7A389DFE58DA/w717/h525"
 },
 
 {
@@ -37,7 +37,7 @@ const productos = [
     categoria:"laptops",
     precio:5800000,
     stock:7,
-    imagen:"https://m.media-amazon.com/images/I/71tdtRCCHbL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://exitocol.vtexassets.com/arquivos/ids/31053987/portatil-gamer-lenovo-legion-5-16iax10-ultra-9-275hx-ram-32gb-ssd-1tb-rtx-5060-8gb.jpg?v=638950176723570000"
 },
 
 {
@@ -45,7 +45,7 @@ const productos = [
     categoria:"celulares",
     precio:2900000,
     stock:15,
-    imagen:"https://m.media-amazon.com/images/I/51ib9steRUL.jpg"
+    imagen:"https://tienda.movistar.com.co/media/catalog/product/m/o/movistar_01_7_1.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=340&width=360&canvas=360:340"
 },
 
 {
@@ -53,7 +53,7 @@ const productos = [
     categoria:"laptops",
     precio:2450000,
     stock:10,
-    imagen:"https://m.media-amazon.com/images/I/51CihH6I+2L._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://m.media-amazon.com/images/I/71OJ8m9zQXL.jpg"
 },
 
 {
@@ -61,7 +61,7 @@ const productos = [
     categoria:"laptops",
     precio:790000,
     stock:2,
-    imagen:"https://m.media-amazon.com/images/I/81b6IIclRfS._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://exitocol.vteximg.com.br/arquivos/ids/404885/portatil-hp-chromebook-14-intel-celeron-4gb-14-pulgadas-se-7034se.jpg?v=637009921414800000"
 },
 
 {
@@ -69,7 +69,7 @@ const productos = [
     categoria:"celulares",
     precio:290000,
     stock:20,
-    imagen:"https://m.media-amazon.com/images/I/61xk4XNRktL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://i.blogs.es/a5fa5b/moto-g-play-2023_navy-blue_hero/650_1200.jpg"
 },
 
 {
@@ -77,7 +77,7 @@ const productos = [
     categoria:"celulares",
     precio:880000,
     stock:10,
-    imagen:"https://m.media-amazon.com/images/I/61H3jeeHnUL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://co.tiendasishop.com/cdn/shop/files/IMG-12496198_223410cb-30e6-4739-b26c-01375038ccde_grande.jpg?v=1723511403"
 },
 
 {
@@ -85,7 +85,7 @@ const productos = [
     categoria:"laptops",
     precio:680000,
     stock:17,
-    imagen:"https://m.media-amazon.com/images/I/51Lko54--JL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://techtoschool.com/cdn/shop/files/Product_Listing_30_fbd3780f-ca15-40d4-a3a9-e99675a8d0a9_1728x.png?v=1732031849"
 },
 
 {
@@ -93,15 +93,15 @@ const productos = [
     categoria:"celulares",
     precio:440000,
     stock:22,
-    imagen:"https://m.media-amazon.com/images/I/51Aux7GAksL._AC_UY327_FMwebp_QL65_.jpg"
-},
+    imagen:"https://m.media-amazon.com/images/I/416G5NDlq+L._SL500_.jpg"
+}
 
 {
-    nombre:"XIAOMI Redmi Note 14",
+    nombre:"Redmi Note 14",
     categoria:"celulares",
     precio:800000,
     stock:5,
-    imagen:"https://m.media-amazon.com/images/I/61RvhprA3qL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://exitocol.vtexassets.com/arquivos/ids/33316802/Celular-XIAOMI-Redmi-Note-14-256-GB-8-GB-RAM-Verde-3645874_a.jpg?v=639137812627000000"
 },
 
 {
@@ -109,7 +109,7 @@ const productos = [
     categoria:"laptops",
     precio:2100000,
     stock:16,
-    imagen:"https://m.media-amazon.com/images/I/71WB564uxyL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://tiendatek.com.co/wp-content/uploads/2025/09/PMU7-RTXA500.webp"
 },
 
 {
@@ -117,7 +117,7 @@ const productos = [
     categoria:"celulares",
     precio:730000,
     stock:3,
-    imagen:"https://m.media-amazon.com/images/I/81Vo6cSAWbL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://tienda.movistar.com.co/media/catalog/product/6/0/60_512_5_2.jpg"
 },
 
 {
@@ -125,7 +125,7 @@ const productos = [
     categoria:"laptops",
     precio:860000,
     stock:13,
-    imagen:"https://m.media-amazon.com/images/I/61PkGRSw05L._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://ecoportatil.es/9324-medium_default/dell-latitude-5400-14-i5-8365u-16gb-ssd-1000gb-full-hd-a-esp.jpg"
 },
 
 {
@@ -133,7 +133,7 @@ const productos = [
     categoria:"celulares",
     precio:5120000,
     stock:8,
-    imagen:"https://m.media-amazon.com/images/I/518OMBP4J7L._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://media.falabella.com/falabellaCO/72015177_1/w=800,h=800,fit=pad"
 },
 
 {
@@ -141,7 +141,7 @@ const productos = [
     categoria:"laptops",
     precio:2510000,
     stock:13,
-    imagen:"https://m.media-amazon.com/images/I/71Q-k94XjBL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://m.media-amazon.com/images/I/6131ZgIFn1L.jpg"
 },
 
 {
@@ -149,7 +149,7 @@ const productos = [
     categoria:"celulares",
     precio:1540000,
     stock:3,
-    imagen:"https://m.media-amazon.com/images/I/61AQkbAo6lL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://cellucity.co.za/wp-content/uploads/2024/05/Honor-200-Lite-in-Blue.jpg"
 },
 
 {
@@ -157,7 +157,7 @@ const productos = [
     categoria:"laptops",
     precio:3500000,
     stock:5,
-    imagen:"https://m.media-amazon.com/images/I/61cVvg6zcWL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://www.canemtek.com.mx/cdn/shop/files/LAPTOP_SURFACE_1943_10MAGEN_FP.jpg?v=1763051253"
 }
 
 ];
