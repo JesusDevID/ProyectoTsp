@@ -94,7 +94,7 @@ const productos = [
     precio:440000,
     stock:22,
     imagen:"https://m.media-amazon.com/images/I/416G5NDlq+L._SL500_.jpg"
-}
+},
 
 {
     nombre:"Redmi Note 14",
