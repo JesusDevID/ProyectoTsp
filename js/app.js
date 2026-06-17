@@ -37,7 +37,7 @@ const productos = [
     categoria:"laptops",
     precio:5800000,
     stock:7,
-    imagen:"https://exitocol.vtexassets.com/arquivos/ids/31053987/portatil-gamer-lenovo-legion-5-16iax10-ultra-9-275hx-ram-32gb-ssd-1tb-rtx-5060-8gb.jpg?v=638950176723570000"
+    imagen:"https://static.wixstatic.com/media/a9655c_b0f3f49ba2ec464184aa9977282a0d72~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a9655c_b0f3f49ba2ec464184aa9977282a0d72~mv2.png"
 },
 
 {
@@ -53,7 +53,7 @@ const productos = [
     categoria:"laptops",
     precio:2450000,
     stock:10,
-    imagen:"https://static.wixstatic.com/media/a9655c_b0f3f49ba2ec464184aa9977282a0d72~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a9655c_b0f3f49ba2ec464184aa9977282a0d72~mv2.png"
+    imagen:"https://m.media-amazon.com/images/I/71OJ8m9zQXL.jpg"
 },
 
 {
@@ -93,7 +93,7 @@ const productos = [
     categoria:"celulares",
     precio:440000,
     stock:22,
-    imagen:"https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/T-Mobile/T-Mobile-Revvl-8-Pro/Graphite-Gray/T-Mobile-Revvl-8-Pro-Graphite-Gray-leftimage.png"
+    imagen:"https://www.androidauthority.com/wp-content/uploads/2017/11/T-Mobile-Revvl-Plus.jpg"
 },
 
 {
@@ -101,7 +101,7 @@ const productos = [
     categoria:"celulares",
     precio:800000,
     stock:5,
-    imagen:"https://media.falabella.com/falabellaCO/140080385_01/w=1004,h=1500,fit=pad"
+    imagen:"https://www.smartgadgets.com.co/cdn/shop/files/Copia_de_Formato_Celular_Watch_4.svg?v=1742502647&width=416"
 },
 
 {
@@ -133,7 +133,7 @@ const productos = [
     categoria:"celulares",
     precio:5120000,
     stock:8,
-    imagen:"https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/samsung/Samsung-Galaxy-Z-Fold5/Phantom-Black/Samsung-Galaxy-Z-Fold5-Phantom-Black-frontimage.png"
+    imagen:"https://media.falabella.com/falabellaCL/144849532_01/w=1500,h=1500,fit=cover"
 },
 
 {

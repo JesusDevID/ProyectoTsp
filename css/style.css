@@ -12,7 +12,7 @@ body{
 header{
     background:#1E3A5F;
     padding:20px;
-    border-bottom:2px solid #374151;
+    border-bottom:2px solid #F3F3F3;
 }
 
 .logo{
@@ -90,7 +90,7 @@ main{
     padding:10px;
     border:none;
     border-radius:5px;
-    background:#1E3A5F;
+    background:#2563EB;
     color:white;
     cursor:pointer;
 }
@@ -103,7 +103,7 @@ main{
 .form-container{
     width:400px;
     margin:50px auto;
-    background:#2563EB;
+    background:#1E3A5F;
     padding:30px;
     border-radius:10px;
     box-shadow:0 2px 10px rgba(0,0,0,.1);
@@ -129,4 +129,5 @@ main{
 .link-form{
     text-align:center;
     margin-top:15px;
+    color: #F3F3F3;
 }
