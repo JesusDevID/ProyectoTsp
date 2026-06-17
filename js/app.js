@@ -5,7 +5,7 @@ const productos = [
     categoria:"celulares",
     precio:4500000,
     stock:10,
-    imagen:"https://m.media-amazon.com/images/I/51GOhI8bhHL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://co.tiendasishop.com/cdn/shop/files/IMG-18067810_m_jpeg_1_11d1e1b0-5fca-4429-b658-0ad7b281be8f.jpg?v=1757469626&width=823"
 },
 
 {
@@ -13,7 +13,7 @@ const productos = [
     categoria:"celulares",
     precio:3800000,
     stock:8,
-    imagen:"https://m.media-amazon.com/images/I/61qvRagAn9L._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://www.korolos.com.co/wp-content/uploads/2026/04/S26ULTRAKOROLOS2-1.jpg"
 },
 
 {
@@ -21,7 +21,7 @@ const productos = [
     categoria:"laptops",
     precio:8500000,
     stock:4,
-    imagen:"https://m.media-amazon.com/images/I/61PfWcnielL._AC_UY327_FMwebp_QL65_.jpg"
+    imagen:"https://mac-center.com/cdn/shop/files/MacBook_Pro_16-in_Silver_PDP_Image_Position-1__ESES_ab897875-8b80-4a24-a091-2b9f642f2bce.jpg?v=1700304124"
 },
 
 {
