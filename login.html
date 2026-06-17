@@ -1,14 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Login</title>
-<link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Z</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
 
+<header>
+
+        <div class="logo">
+            Tech Z
+        </div>
+
+        <div class="barra-superior">
+
+            <input
+                type="text"
+                id="busqueda"
+                placeholder="Buscar producto..."
+            >
+
+            <select id="filtro">
+                <option value="todos">Todos</option>
+                <option value="celulares">Celulares</option>
+                <option value="laptops">Laptops</option>
+            </select>
+
+         <button class="login-btn" onclick="window.location.href='login.html'">
+            Login
+</button>
+        </div>
+
+    </header>
+
+<main>
 <div class="form-container">
 
 <h2>Iniciar Sesión</h2>
@@ -30,6 +57,6 @@ Crear cuenta
 </div>
 
 <script src="js/auth.js"></script>
-
+</main>
 </body>
 </html>
