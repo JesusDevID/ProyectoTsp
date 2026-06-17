@@ -44,6 +44,11 @@ header{
     cursor:pointer;
 }
 
+.index-btn{
+    padding:10px 20px;
+    cursor:pointer;
+}
+
 main{
     padding:30px;
 }
