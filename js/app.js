@@ -53,7 +53,7 @@ const productos = [
     categoria:"laptops",
     precio:2450000,
     stock:10,
-    imagen:"https://m.media-amazon.com/images/I/71OJ8m9zQXL.jpg"
+    imagen:"https://static.wixstatic.com/media/a9655c_b0f3f49ba2ec464184aa9977282a0d72~mv2.png/v1/fill/w_560,h_560,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/a9655c_b0f3f49ba2ec464184aa9977282a0d72~mv2.png"
 },
 
 {
@@ -69,7 +69,7 @@ const productos = [
     categoria:"celulares",
     precio:290000,
     stock:20,
-    imagen:"https://i.blogs.es/a5fa5b/moto-g-play-2023_navy-blue_hero/650_1200.jpg"
+    imagen:"https://www.notebookcheck.org/uploads/tx_nbc2/Motorola_Moto_G_Play_2023.JPG"
 },
 
 {
@@ -93,7 +93,7 @@ const productos = [
     categoria:"celulares",
     precio:440000,
     stock:22,
-    imagen:"https://m.media-amazon.com/images/I/416G5NDlq+L._SL500_.jpg"
+    imagen:"https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/T-Mobile/T-Mobile-Revvl-8-Pro/Graphite-Gray/T-Mobile-Revvl-8-Pro-Graphite-Gray-leftimage.png"
 },
 
 {
@@ -101,7 +101,7 @@ const productos = [
     categoria:"celulares",
     precio:800000,
     stock:5,
-    imagen:"https://exitocol.vtexassets.com/arquivos/ids/33316802/Celular-XIAOMI-Redmi-Note-14-256-GB-8-GB-RAM-Verde-3645874_a.jpg?v=639137812627000000"
+    imagen:"https://media.falabella.com/falabellaCO/140080385_01/w=1004,h=1500,fit=pad"
 },
 
 {
@@ -117,7 +117,7 @@ const productos = [
     categoria:"celulares",
     precio:730000,
     stock:3,
-    imagen:"https://tienda.movistar.com.co/media/catalog/product/6/0/60_512_5_2.jpg"
+    imagen:"https://olimpica.vtexassets.com/arquivos/ids/1895200/EDGE601.png?v=638883837205370000"
 },
 
 {
@@ -133,7 +133,7 @@ const productos = [
     categoria:"celulares",
     precio:5120000,
     stock:8,
-    imagen:"https://media.falabella.com/falabellaCO/72015177_1/w=800,h=800,fit=pad"
+    imagen:"https://cdn.tmobile.com/content/dam/t-mobile/en-p/cell-phones/samsung/Samsung-Galaxy-Z-Fold5/Phantom-Black/Samsung-Galaxy-Z-Fold5-Phantom-Black-frontimage.png"
 },
 
 {
@@ -149,7 +149,7 @@ const productos = [
     categoria:"celulares",
     precio:1540000,
     stock:3,
-    imagen:"https://cellucity.co.za/wp-content/uploads/2024/05/Honor-200-Lite-in-Blue.jpg"
+    imagen:"https://i5.walmartimages.com/asr/36136987-423b-4147-ad59-e6ae5fcfcbcc.5c0d3a6e4c0756f6f1711607f7557afd.jpeg"
 },
 
 {
@@ -157,7 +157,7 @@ const productos = [
     categoria:"laptops",
     precio:3500000,
     stock:5,
-    imagen:"https://www.canemtek.com.mx/cdn/shop/files/LAPTOP_SURFACE_1943_10MAGEN_FP.jpg?v=1763051253"
+    imagen:"https://media.falabella.com/falabellaCO/154794903_01/w=1500,h=1500,fit=cover"
 }
 
 ];
