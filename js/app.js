@@ -182,9 +182,11 @@ const productos = [
 
 ];
 
+let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 const contenedor = document.getElementById("productos");
 
-function mostrarProductos(lista){
+function mostrarProductos(lista) {
 
     contenedor.innerHTML = "";
 
@@ -211,11 +213,12 @@ function mostrarProductos(lista){
                 </p>
 
                 <details class="detalles-producto">
-                <summary>Más detalles</summary>
+                    <summary>Más detalles</summary>
                     <p>${producto.descripcion}</p>
-                    </details>
+                </details>
 
-                <button class="btn-carrito">
+                <button class="btn-carrito"
+                onclick="agregarCarrito(${productos.indexOf(producto)})">
                     🛒 Agregar al carrito
                 </button>
 
@@ -225,35 +228,85 @@ function mostrarProductos(lista){
 
         `;
     });
+
+}
+
+function agregarCarrito(indice) {
+
+    const producto = productos[indice];
+
+    const existente = carrito.find(
+        p => p.nombre === producto.nombre
+    );
+
+    if (existente) {
+
+        existente.cantidad++;
+
+    } else {
+
+        carrito.push({
+            ...producto,
+            cantidad: 1
+        });
+
+    }
+
+    localStorage.setItem(
+        "carrito",
+        JSON.stringify(carrito)
+    );
+
+    alert("Producto agregado al carrito");
+
 }
 
 mostrarProductos(productos);
 
 document.getElementById("busqueda")
-.addEventListener("input", function(e){
+    .addEventListener("input", function (e) {
 
-    const texto = e.target.value.toLowerCase();
+        const texto = e.target.value.toLowerCase();
 
-    const filtrados = productos.filter(producto =>
-        producto.nombre.toLowerCase().includes(texto)
-    );
+        const filtrados = productos.filter(producto =>
+            producto.nombre.toLowerCase().includes(texto)
+        );
 
-    mostrarProductos(filtrados);
-});
+        mostrarProductos(filtrados);
+
+    });
 
 document.getElementById("filtro")
-.addEventListener("change", function(e){
+    .addEventListener("change", function (e) {
 
-    const categoria = e.target.value;
+        const categoria = e.target.value;
 
-    if(categoria === "todos"){
-        mostrarProductos(productos);
-        return;
-    }
+        if (categoria === "todos") {
 
-    const filtrados = productos.filter(producto =>
-        producto.categoria === categoria
-    );
+            mostrarProductos(productos);
+            return;
 
-    mostrarProductos(filtrados);
+        }
+
+        const filtrados = productos.filter(producto =>
+            producto.categoria === categoria
+        );
+
+        mostrarProductos(filtrados);
+
+    });
+document.querySelectorAll("button").forEach(btn=>{
+
+    btn.addEventListener("click",function(){
+
+        this.classList.add("click");
+
+        setTimeout(()=>{
+
+            this.classList.remove("click");
+
+        },200);
+
+    });
+
 });

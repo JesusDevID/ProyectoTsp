@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi carrito - Tech Z</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Tech Z
+    </div>
+
+    <div class="barra-superior">
+
+        <button class="index-btn"
+                onclick="window.location.href='index.html'">
+
+            Productos
+
+        </button>
+
+        <button class="login-btn"
+                onclick="window.location.href='login.html'">
+
+            Login
+
+        </button>
+
+    </div>
+
+</header>
+
+<main>
+
+    <h2>Mi carrito</h2>
+
+    <br>
+
+    <div id="carrito">
+
+    </div>
+
+    <br>
+
+    <h2 id="total">
+
+    </h2>
+
+    <br>
+
+    <button class="btn-carrito"
+            onclick="vaciarCarrito()">
+
+        Vaciar carrito
+
+    </button>
+
+    <button class="btn-carrito"
+            onclick="comprar()">
+
+        Comprar
+
+    </button>
+
+</main>
+
+<script src="js/carrito.js"></script>
+
+</body>
+
+</html>
