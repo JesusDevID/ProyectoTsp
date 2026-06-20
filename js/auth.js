@@ -1,63 +1,7 @@
-function registrar(){
-
-    let usuarios =
-    JSON.parse(localStorage.getItem("usuarios")) || [];
-
-    const usuario = {
-
-        nombre:
-        document.getElementById("nombre").value,
-
-        correo:
-        document.getElementById("correo").value,
-
-        password:
-        document.getElementById("password").value
-
-    };
-
-    usuarios.push(usuario);
-
-    localStorage.setItem(
-        "usuarios",
-        JSON.stringify(usuarios)
-    );
-
-    alert("Usuario registrado correctamente");
-
-    window.location.href = "login.html";
-}
-
-function login(){
-
-    let usuarios =
-    JSON.parse(localStorage.getItem("usuarios")) || [];
-
-    const correo =
-    document.getElementById("correo").value;
-
-    const password =
-    document.getElementById("password").value;
-
-    const usuario = usuarios.find(u =>
-        u.correo === correo &&
-        u.password === password
-    );
-
-    if(usuario){
-
-        localStorage.setItem(
-            "sesion",
-            JSON.stringify(usuario)
-        );
-
-        alert("Bienvenido " + usuario.nombre);
-
-        window.location.href = "index.html";
-
-    }else{
-
-        alert("Correo o contraseña incorrectos");
-
-    }
-}
+const {KEYS,getUsers,write,toast}=TechStore;const emailPattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function setError(input,message=''){input.closest('label').querySelector('.field-error').textContent=message;input.classList.toggle('invalid',Boolean(message));return !message}
+function validateEmail(input){return setError(input,!input.value.trim()?'Escribe tu correo':!emailPattern.test(input.value.trim())?'Ingresa un correo válido':'')}
+function validatePassword(input){return setError(input,input.value.length<6?'Usa al menos 6 caracteres':'')}
+document.querySelectorAll('input').forEach(input=>input.addEventListener('input',()=>setError(input)));getUsers();
+const registerForm=document.getElementById('register-form');if(registerForm)registerForm.addEventListener('submit',event=>{event.preventDefault();const name=document.getElementById('nombre');const email=document.getElementById('correo');const password=document.getElementById('password');const nameOk=setError(name,name.value.trim().length<2?'Escribe tu nombre completo':'');const emailOk=validateEmail(email);const passwordOk=validatePassword(password);if(!nameOk||!emailOk||!passwordOk)return;const users=getUsers();const normalized=email.value.trim().toLowerCase();if(users.some(u=>u.email===normalized)){setError(email,'Ya existe una cuenta con este correo');return}users.push({id:crypto.randomUUID?.()||String(Date.now()),name:name.value.trim(),email:normalized,password:password.value});write(KEYS.users,users);toast('Cuenta creada. Ahora puedes ingresar');setTimeout(()=>location.href='login.html',900)});
+const loginForm=document.getElementById('login-form');if(loginForm)loginForm.addEventListener('submit',event=>{event.preventDefault();const email=document.getElementById('correo');const password=document.getElementById('password');if(!validateEmail(email)||!validatePassword(password))return;const user=getUsers().find(u=>u.email===email.value.trim().toLowerCase()&&u.password===password.value);const error=document.getElementById('form-error');if(!user){error.textContent='El correo o la contraseña no coinciden.';return}error.textContent='';write(KEYS.session,{id:user.id,name:user.name,email:user.email});toast(`¡Qué bueno verte, ${user.name.split(' ')[0]}!`);const destination=sessionStorage.getItem('techz_return')||'index.html';sessionStorage.removeItem('techz_return');setTimeout(()=>location.href=destination,700)});

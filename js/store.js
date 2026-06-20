@@ -1,0 +1,33 @@
+(() => {
+  const PRODUCTS = [
+    {id:'iphone-17',name:'iPhone 17',category:'celulares',price:4500000,stock:10,image:'https://co.tiendasishop.com/cdn/shop/files/IMG-18067810_m_jpeg_1_11d1e1b0-5fca-4429-b658-0ad7b281be8f.jpg?v=1757469626&width=823',description:'Pantalla Super Retina XDR, cámaras avanzadas y rendimiento de última generación.',badge:'Nuevo'},
+    {id:'galaxy-s26',name:'Samsung S26',category:'celulares',price:3800000,stock:8,image:'https://www.korolos.com.co/wp-content/uploads/2026/04/S26ULTRAKOROLOS2-1.jpg',description:'Pantalla AMOLED, cámara de alta resolución y batería para todo el día.',badge:'Top ventas'},
+    {id:'macbook-pro',name:'MacBook Pro',category:'laptops',price:8500000,stock:4,image:'https://mac-center.com/cdn/shop/files/MacBook_Pro_16-in_Silver_PDP_Image_Position-1__ESES_ab897875-8b80-4a24-a091-2b9f642f2bce.jpg?v=1700304124',description:'Potencia profesional, pantalla Retina y autonomía excepcional.',badge:'Pro'},
+    {id:'asus-rog',name:'Asus ROG',category:'laptops',price:6200000,stock:6,image:'https://dlcdnwebimgs.asus.com/gain/68E55D05-BB23-4998-B3D4-7A389DFE58DA/w717/h525',description:'Equipo gaming con procesador AMD Ryzen y gráficos NVIDIA.',badge:'Gaming'},
+    {id:'lenovo-legion',name:'Lenovo Legion',category:'laptops',price:5800000,stock:7,image:'https://static.wixstatic.com/media/a9655c_b0f3f49ba2ec464184aa9977282a0d72~mv2.png/v1/fill/w_560,h_560,al_c,q_85/lenovo.png',description:'Rendimiento gamer equilibrado con procesador Intel Core i7.'},
+    {id:'xiaomi-15',name:'Xiaomi 15',category:'celulares',price:2900000,stock:15,image:'https://tienda.movistar.com.co/media/catalog/product/m/o/movistar_01_7_1.jpg?quality=80&height=340&width=360',description:'Diseño compacto, pantalla AMOLED y cámara versátil.',badge:'Recomendado'},
+    {id:'ideapad-slim',name:'Lenovo IdeaPad Slim 3i',category:'laptops',price:2450000,stock:10,image:'https://m.media-amazon.com/images/I/71OJ8m9zQXL.jpg',description:'Portátil ligero con Intel Core i5, ideal para estudio y trabajo.'},
+    {id:'moto-g-play',name:'Moto G Play',category:'celulares',price:290000,stock:20,image:'https://www.notebookcheck.org/uploads/tx_nbc2/Motorola_Moto_G_Play_2023.JPG',description:'Gran autonomía y experiencia fluida para todos los días.',badge:'Oferta'},
+    {id:'iphone-13',name:'iPhone 13',category:'celulares',price:880000,stock:10,image:'https://co.tiendasishop.com/cdn/shop/files/IMG-12496198_223410cb-30e6-4739-b26c-01375038ccde_grande.jpg?v=1723511403',description:'Chip A15 Bionic y cámara doble en un diseño resistente.',badge:'Oferta'},
+    {id:'galaxy-book4',name:'Galaxy Book4',category:'laptops',price:2510000,stock:13,image:'https://m.media-amazon.com/images/I/6131ZgIFn1L.jpg',description:'Portátil Samsung delgado y versátil para productividad.'},
+    {id:'honor-200',name:'HONOR 200 Dual-SIM',category:'celulares',price:1540000,stock:3,image:'https://i5.walmartimages.com/asr/36136987-423b-4147-ad59-e6ae5fcfcbcc.5c0d3a6e4c0756f6f1711607f7557afd.jpeg',description:'Pantalla AMOLED brillante y cámara avanzada para retratos.'},
+    {id:'surface',name:'Microsoft Surface',category:'laptops',price:3500000,stock:5,image:'https://media.falabella.com/falabellaCO/154794903_01/w=1500,h=1500,fit=cover',description:'Diseño premium, pantalla táctil y productividad con Windows.',badge:'Premium'}
+  ];
+  const KEYS={cart:'techz_cart',users:'techz_users',session:'techz_session'};
+  const read=(key,fallback=[])=>{try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}catch{return fallback}};
+  const write=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
+  const migrateCart=()=>{let cart=read(KEYS.cart,null);if(!cart){const old=read('carrito',[]);cart=old.map(item=>{const product=PRODUCTS.find(p=>p.name===item.nombre||p.name===item.name);return product?{id:product.id,quantity:Number(item.cantidad||item.quantity)||1}:null}).filter(Boolean);write(KEYS.cart,cart)}return cart};
+  const getCart=()=>migrateCart().filter(item=>PRODUCTS.some(p=>p.id===item.id)&&item.quantity>0);
+  const saveCart=cart=>{write(KEYS.cart,cart);window.dispatchEvent(new CustomEvent('cart:updated'));};
+  const addToCart=(id)=>{const product=PRODUCTS.find(p=>p.id===id);if(!product)return {ok:false,message:'Producto no disponible'};const cart=getCart();const item=cart.find(i=>i.id===id);const quantity=item?.quantity||0;if(quantity>=product.stock)return {ok:false,message:'Ya alcanzaste el stock disponible'};item?item.quantity++:cart.push({id,quantity:1});saveCart(cart);return {ok:true,message:`${product.name} se agregó al carrito`};};
+  const setQuantity=(id,quantity)=>{const product=PRODUCTS.find(p=>p.id===id);const cart=getCart();const item=cart.find(i=>i.id===id);if(!item||!product)return;if(quantity<=0)saveCart(cart.filter(i=>i.id!==id));else{item.quantity=Math.min(quantity,product.stock);saveCart(cart)}};
+  const cartDetails=()=>getCart().map(item=>({...PRODUCTS.find(p=>p.id===item.id),quantity:item.quantity}));
+  const count=()=>getCart().reduce((sum,item)=>sum+item.quantity,0);
+  const money=value=>new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(value);
+  const toast=(message,type='success')=>{const el=document.getElementById('toast');if(!el)return;el.textContent=message;el.className=`toast show ${type}`;clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>el.className='toast',2800)};
+  const getUsers=()=>{let users=read(KEYS.users,null);if(!users){users=read('usuarios',[]).map((user,index)=>({id:`legacy-${index}-${Date.now()}`,name:user.nombre||user.name||'Usuario',email:(user.correo||user.email||'').toLowerCase(),password:user.password||''}));write(KEYS.users,users)}return users};
+  const session=()=>{let user=read(KEYS.session,null);if(!user){const old=read('sesion',null);if(old){user={id:old.id||'legacy-session',name:old.nombre||old.name||'Usuario',email:old.correo||old.email||''};write(KEYS.session,user)}}return user};
+  const updateHeader=()=>{const badge=document.getElementById('cart-count');if(badge)badge.textContent=count();const link=document.getElementById('auth-link');const user=session();if(link&&user){link.textContent=`Hola, ${user.name.split(' ')[0]}`;link.href='#';link.title='Cerrar sesión';link.addEventListener('click',e=>{e.preventDefault();localStorage.removeItem(KEYS.session);location.reload()})}};
+  window.TechStore={PRODUCTS,KEYS,read,write,getUsers,getCart,saveCart,addToCart,setQuantity,cartDetails,count,money,toast,session,updateHeader};
+  document.addEventListener('DOMContentLoaded',updateHeader);window.addEventListener('cart:updated',updateHeader);
+})();

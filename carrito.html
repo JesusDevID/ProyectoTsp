@@ -1,78 +1,19 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi carrito - Tech Z</title>
-
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mi carrito — Tech Z</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
-<header>
-
-    <div class="logo">
-        Tech Z
+  <header class="site-header"><nav class="nav container"><a class="brand" href="index.html"><span class="brand-mark">Z</span><span>Tech Z</span></a><div class="nav-actions"><a class="nav-link" href="index.html">Seguir comprando</a><a class="nav-link" id="auth-link" href="login.html">Ingresar</a></div></nav></header>
+  <main class="cart-page container">
+    <div class="page-title"><span class="overline">TU SELECCIÓN</span><h1>Mi carrito</h1><p>Revisa tus productos antes de finalizar la compra.</p></div>
+    <div class="cart-layout">
+      <section class="cart-panel" aria-labelledby="cart-heading"><div class="panel-header"><h2 id="cart-heading">Productos <span id="cart-items-label"></span></h2><button class="text-button danger" id="clear-cart" type="button">Vaciar carrito</button></div><div id="carrito"></div></section>
+      <aside class="summary-card"><h2>Resumen</h2><div class="summary-line"><span>Subtotal</span><strong id="subtotal">$0</strong></div><div class="summary-line"><span>Envío</span><strong id="shipping">Gratis</strong></div><div class="summary-divider"></div><div class="summary-line total-line"><span>Total</span><strong id="total">$0</strong></div><p class="summary-note">Impuestos incluidos. Envío gratis en compras superiores a $1.000.000.</p><button class="primary-button full" id="checkout" type="button">Finalizar compra <span>→</span></button><a class="continue-link" href="index.html">← Seguir explorando</a></aside>
     </div>
-
-    <div class="barra-superior">
-
-        <button class="index-btn"
-                onclick="window.location.href='index.html'">
-
-            Productos
-
-        </button>
-
-        <button class="login-btn"
-                onclick="window.location.href='login.html'">
-
-            Login
-
-        </button>
-
-    </div>
-
-</header>
-
-<main>
-
-    <h2>Mi carrito</h2>
-
-    <br>
-
-    <div id="carrito">
-
-    </div>
-
-    <br>
-
-    <h2 id="total">
-
-    </h2>
-
-    <br>
-
-    <button class="btn-carrito"
-            onclick="vaciarCarrito()">
-
-        Vaciar carrito
-
-    </button>
-
-    <button class="btn-carrito"
-            onclick="comprar()">
-
-        Comprar
-
-    </button>
-
-</main>
-
-<script src="js/carrito.js"></script>
-
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/store.js"></script><script src="js/carrito.js"></script>
 </body>
-
 </html>

@@ -1,57 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tech Z</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Tecnología que potencia tus ideas. Celulares y portátiles seleccionados.">
+  <title>Tech Z — Tecnología sin límites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Navegación principal">
+      <a class="brand" href="index.html" aria-label="Tech Z, inicio"><span class="brand-mark">Z</span><span>Tech Z</span></a>
+      <div class="nav-actions">
+        <a class="nav-link" id="auth-link" href="login.html">Ingresar</a>
+        <a class="cart-link" href="carrito.html" aria-label="Ver carrito">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 3h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H6M10 21a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm9 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"/></svg>
+          <span>Carrito</span><span class="cart-count" id="cart-count">0</span>
+        </a>
+      </div>
+    </nav>
+  </header>
 
-    <header>
+  <main>
+    <section class="hero container">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="pulse"></span>Nueva colección 2026</span>
+        <h1>Tecnología que mueve <span>tus ideas.</span></h1>
+        <p>Equipos seleccionados para trabajar, crear y disfrutar sin límites. Compra fácil, rápido y con total confianza.</p>
+        <a class="primary-button" href="#catalogo">Explorar productos <span>→</span></a>
+        <div class="trust-row"><span>✓ Envíos a toda Colombia</span><span>✓ Compra segura</span><span>✓ Garantía incluida</span></div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="orb"></div>
+        <div class="device-card"><span class="device-label">RENDIMIENTO</span><strong>Potencia<br>sin pausas</strong><span class="device-stat">Hasta 24 h de batería</span></div>
+        <div class="floating-chip chip-one">✦ Última generación</div>
+        <div class="floating-chip chip-two">4.9 <span>★★★★★</span></div>
+      </div>
+    </section>
 
-        <div class="logo">
-            Tech Z
+    <section class="catalog-section" id="catalogo">
+      <div class="container">
+        <div class="section-heading"><div><span class="overline">CATÁLOGO</span><h2>Encuentra tu próximo equipo</h2></div><p id="results-count" aria-live="polite"></p></div>
+        <div class="toolbar">
+          <label class="search-box" for="busqueda"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input type="search" id="busqueda" placeholder="Buscar por nombre..." autocomplete="off"></label>
+          <div class="filter-group" role="group" aria-label="Filtrar por categoría">
+            <button class="filter-chip active" data-category="todos">Todos</button>
+            <button class="filter-chip" data-category="celulares">Celulares</button>
+            <button class="filter-chip" data-category="laptops">Portátiles</button>
+          </div>
         </div>
+        <div id="productos" class="product-grid"></div>
+      </div>
+    </section>
+  </main>
 
-        <div class="barra-superior">
-
-            <input
-                type="text"
-                id="busqueda"
-                placeholder="Buscar producto..."
-            >
-
-            <select id="filtro">
-                <option value="todos">Todos</option>
-                <option value="celulares">Celulares</option>
-                <option value="laptops">Laptops</option>
-            </select>
-
-         <button class="login-btn" onclick="window.location.href='login.html'">
-            Login
-</button>
-
-         <button class="carrito-btn"
-                    onclick="window.location.href='carrito.html'">
-                🛒 Carrito
-            </button>
-
-        </div>
-
-    </header>
-
-    <main>
-        <div id="carrito"></div>
-
-        <h2 id="total"></h2>
-
-
-        <div id="productos"></div>
-
-    </main>
-
-    <script src="js/app.js"></script>
-
+  <footer><div class="container footer-inner"><a class="brand" href="index.html"><span class="brand-mark">Z</span><span>Tech Z</span></a><p>La tecnología correcta cambia lo que puedes hacer.</p><span>© 2026 Tech Z</span></div></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
 </body>
 </html>
