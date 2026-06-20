@@ -137,3 +137,20 @@ main{
     text-align:center;
     margin-top:15px;
 }
+
+.detalles-producto {
+    margin: 10px 0;
+}
+
+.detalles-producto summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #2563eb;
+}
+
+.detalles-producto p {
+    margin-top: 8px;
+    color: #555;
+    line-height: 1.5;
+}
+
