@@ -32,6 +32,11 @@
         <p>Equipos seleccionados para trabajar, crear y disfrutar sin límites. Compra fácil, rápido y con total confianza.</p>
         <a class="primary-button" href="#catalogo">Explorar productos <span>→</span></a>
         <div class="trust-row"><span>✓ Envíos a toda Colombia</span><span>✓ Compra segura</span><span>✓ Garantía incluida</span></div>
+        <div class="hero-stats" aria-label="Indicadores de tienda">
+          <span><strong>20</strong> productos</span>
+          <span><strong>4.9</strong> valoración</span>
+          <span><strong>24h</strong> respuesta</span>
+        </div>
       </div>
       <div class="hero-visual" aria-hidden="true">
         <div class="orb"></div>
@@ -46,6 +51,15 @@
         <div class="section-heading"><div><span class="overline">CATÁLOGO</span><h2>Encuentra tu próximo equipo</h2></div><p id="results-count" aria-live="polite"></p></div>
         <div class="toolbar">
           <label class="search-box" for="busqueda"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg><input type="search" id="busqueda" placeholder="Buscar por nombre..." autocomplete="off"></label>
+          <label class="sort-box" for="ordenar">Ordenar
+            <select id="ordenar">
+              <option value="featured">Destacados</option>
+              <option value="price-asc">Menor precio</option>
+              <option value="price-desc">Mayor precio</option>
+              <option value="stock">Pocas unidades</option>
+              <option value="name">Nombre A-Z</option>
+            </select>
+          </label>
           <div class="filter-group" role="group" aria-label="Filtrar por categoría">
             <button class="filter-chip active" data-category="todos">Todos</button>
             <button class="filter-chip" data-category="celulares">Celulares</button>
@@ -58,6 +72,7 @@
   </main>
 
   <footer><div class="container footer-inner"><a class="brand" href="index.html"><span class="brand-mark">Z</span><span>Tech Z</span></a><p>La tecnología correcta cambia lo que puedes hacer.</p><span>© 2026 Tech Z</span></div></footer>
+  <div id="quick-view" class="quick-view" hidden></div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
   <script src="js/store.js"></script>
   <script src="js/app.js"></script>

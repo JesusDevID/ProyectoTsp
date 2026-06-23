@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 520">
+  <defs><linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#eff5ff"/><stop offset="1" stop-color="#d9e6ff"/></linearGradient><linearGradient id="screen" x1="0" x2="1"><stop stop-color="#121a33"/><stop offset="1" stop-color="#3563e9"/></linearGradient></defs>
+  <rect width="720" height="520" rx="42" fill="url(#bg)"/>
+  <circle cx="558" cy="116" r="86" fill="#4de0d2" opacity=".2"/>
+  <rect x="128" y="110" width="464" height="282" rx="24" fill="#101828"/>
+  <rect x="154" y="134" width="412" height="224" rx="15" fill="url(#screen)"/>
+  <path d="M96 400h528l-48 42H144z" fill="#263246"/>
+  <path d="M252 400h216l-18 18H270z" fill="#667085"/>
+  <text x="360" y="252" text-anchor="middle" font-family="Manrope,Arial" font-size="40" font-weight="800" fill="#fff">HP Victus</text>
+  <text x="360" y="292" text-anchor="middle" font-family="Manrope,Arial" font-size="18" font-weight="700" fill="#c7d7ff">Gaming performance</text>
+</svg>

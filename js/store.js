@@ -11,23 +11,100 @@
     {id:'iphone-13',name:'iPhone 13',category:'celulares',price:880000,stock:10,image:'https://co.tiendasishop.com/cdn/shop/files/IMG-12496198_223410cb-30e6-4739-b26c-01375038ccde_grande.jpg?v=1723511403',description:'Chip A15 Bionic y cámara doble en un diseño resistente.',badge:'Oferta'},
     {id:'galaxy-book4',name:'Galaxy Book4',category:'laptops',price:2510000,stock:13,image:'https://m.media-amazon.com/images/I/6131ZgIFn1L.jpg',description:'Portátil Samsung delgado y versátil para productividad.'},
     {id:'honor-200',name:'HONOR 200 Dual-SIM',category:'celulares',price:1540000,stock:3,image:'https://i5.walmartimages.com/asr/36136987-423b-4147-ad59-e6ae5fcfcbcc.5c0d3a6e4c0756f6f1711607f7557afd.jpeg',description:'Pantalla AMOLED brillante y cámara avanzada para retratos.'},
-    {id:'surface',name:'Microsoft Surface',category:'laptops',price:3500000,stock:5,image:'https://media.falabella.com/falabellaCO/154794903_01/w=1500,h=1500,fit=cover',description:'Diseño premium, pantalla táctil y productividad con Windows.',badge:'Premium'}
+    {id:'surface',name:'Microsoft Surface',category:'laptops',price:3500000,stock:5,image:'https://media.falabella.com/falabellaCO/154794903_01/w=1500,h=1500,fit=cover',description:'Diseño premium, pantalla táctil y productividad con Windows.',badge:'Premium'},
+    {id:'hp-victus',name:'HP Victus 15',category:'laptops',price:3890000,stock:9,image:'https://cdn.mos.cms.futurecdn.net/f7faK9HU3igyWnpvdxRMgD.jpg',description:'Portátil gamer con buen rendimiento para jugar, estudiar y crear contenido.',badge:'Balanceado'},
+    {id:'acer-nitro',name:'Acer Nitro V',category:'laptops',price:4200000,stock:6,image:'https://cdn.mos.cms.futurecdn.net/CFSsMzSqbb5LuC4T9aT7hf.jpg',description:'Pantalla fluida, gráficos dedicados y diseño agresivo para gaming.'},
+    {id:'dell-inspiron',name:'Dell Inspiron 15',category:'laptops',price:2750000,stock:12,image:'https://bfasset.costco-static.com/U447IH35/as/s6sq3vp7jxxf87fwzpcggvx/4000358385-847__1?auto=webp&canvas=600,600&fit=bounds&format=jpg&height=600&width=600',description:'Equipo confiable para oficina, clases virtuales y productividad diaria.',badge:'Trabajo'},
+    {id:'macbook-air',name:'MacBook Air M3',category:'laptops',price:5600000,stock:5,image:'https://www.buyitdirect.ie/Images/MRXT3BA_1_LargeThumbnail.png?height=600&v=1&width=600',description:'Diseño ultraligero, chip Apple Silicon y batería para todo el día.',badge:'Ligero'},
+    {id:'pixel-9',name:'Google Pixel 9',category:'celulares',price:3200000,stock:7,image:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Pixel_9_%26_Pixel_9_Pro_Hands-On_Impressions_%28ShoAndTech%29_%282160p_24fps_VP9_LQ-160kbit_Opus%29-00.02.08.000.png/250px-Pixel_9_%26_Pixel_9_Pro_Hands-On_Impressions_%28ShoAndTech%29_%282160p_24fps_VP9_LQ-160kbit_Opus%29-00.02.08.000.png',description:'Experiencia Android limpia, fotografía computacional y gran fluidez.',badge:'Foto'},
+    {id:'redmi-note-14',name:'Redmi Note 14 Pro',category:'celulares',price:1350000,stock:18,image:'https://wo.ua/upload/resize_cache/iblock/b63/790_790_1/mazxebw0d8xbzv6grtu34av5bt46b5pk.jpg',description:'Pantalla AMOLED, carga rápida y excelente relación precio-rendimiento.'},
+    {id:'galaxy-a56',name:'Samsung Galaxy A56',category:'celulares',price:1720000,stock:14,image:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Samsung_Galaxy_A56_5G_2025.jpg/250px-Samsung_Galaxy_A56_5G_2025.jpg',description:'Celular equilibrado con buena cámara, batería sólida y diseño elegante.',badge:'Popular'},
+    {id:'nothing-phone',name:'Nothing Phone 2a',category:'celulares',price:1650000,stock:8,image:'https://media.bin.lt/%40bite-lt/sites/default/files/products/2024-03/nothing-phone-2a-8128gb-white-1_0.png',description:'Diseño transparente, interfaz limpia y rendimiento ágil para el día a día.',badge:'Diseño'}
   ];
-  const KEYS={cart:'techz_cart',users:'techz_users',session:'techz_session'};
-  const read=(key,fallback=[])=>{try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}catch{return fallback}};
-  const write=(key,value)=>localStorage.setItem(key,JSON.stringify(value));
-  const migrateCart=()=>{let cart=read(KEYS.cart,null);if(!cart){const old=read('carrito',[]);cart=old.map(item=>{const product=PRODUCTS.find(p=>p.name===item.nombre||p.name===item.name);return product?{id:product.id,quantity:Number(item.cantidad||item.quantity)||1}:null}).filter(Boolean);write(KEYS.cart,cart)}return cart};
-  const getCart=()=>migrateCart().filter(item=>PRODUCTS.some(p=>p.id===item.id)&&item.quantity>0);
-  const saveCart=cart=>{write(KEYS.cart,cart);window.dispatchEvent(new CustomEvent('cart:updated'));};
-  const addToCart=(id)=>{const product=PRODUCTS.find(p=>p.id===id);if(!product)return {ok:false,message:'Producto no disponible'};const cart=getCart();const item=cart.find(i=>i.id===id);const quantity=item?.quantity||0;if(quantity>=product.stock)return {ok:false,message:'Ya alcanzaste el stock disponible'};item?item.quantity++:cart.push({id,quantity:1});saveCart(cart);return {ok:true,message:`${product.name} se agregó al carrito`};};
-  const setQuantity=(id,quantity)=>{const product=PRODUCTS.find(p=>p.id===id);const cart=getCart();const item=cart.find(i=>i.id===id);if(!item||!product)return;if(quantity<=0)saveCart(cart.filter(i=>i.id!==id));else{item.quantity=Math.min(quantity,product.stock);saveCart(cart)}};
-  const cartDetails=()=>getCart().map(item=>({...PRODUCTS.find(p=>p.id===item.id),quantity:item.quantity}));
-  const count=()=>getCart().reduce((sum,item)=>sum+item.quantity,0);
-  const money=value=>new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(value);
-  const toast=(message,type='success')=>{const el=document.getElementById('toast');if(!el)return;el.textContent=message;el.className=`toast show ${type}`;clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>el.className='toast',2800)};
-  const getUsers=()=>{let users=read(KEYS.users,null);if(!users){users=read('usuarios',[]).map((user,index)=>({id:`legacy-${index}-${Date.now()}`,name:user.nombre||user.name||'Usuario',email:(user.correo||user.email||'').toLowerCase(),password:user.password||''}));write(KEYS.users,users)}return users};
-  const session=()=>{let user=read(KEYS.session,null);if(!user){const old=read('sesion',null);if(old){user={id:old.id||'legacy-session',name:old.nombre||old.name||'Usuario',email:old.correo||old.email||''};write(KEYS.session,user)}}return user};
-  const updateHeader=()=>{const badge=document.getElementById('cart-count');if(badge)badge.textContent=count();const link=document.getElementById('auth-link');const user=session();if(link&&user){link.textContent=`Hola, ${user.name.split(' ')[0]}`;link.href='#';link.title='Cerrar sesión';link.addEventListener('click',e=>{e.preventDefault();localStorage.removeItem(KEYS.session);location.reload()})}};
-  window.TechStore={PRODUCTS,KEYS,read,write,getUsers,getCart,saveCart,addToCart,setQuantity,cartDetails,count,money,toast,session,updateHeader};
-  document.addEventListener('DOMContentLoaded',updateHeader);window.addEventListener('cart:updated',updateHeader);
+
+  const PRELOADED_PASSWORD = 'TechZ2026*';
+  const PRELOADED_USERS = [
+    {id:'preloaded-elpatino6',name:'Elpatino6',email:'elpatino6@poligran.edu.co',password:PRELOADED_PASSWORD},
+    {id:'preloaded-bstmartinez',name:'Brayan Martinez',email:'bstmartinez@poligran.edu.co',password:PRELOADED_PASSWORD},
+    {id:'preloaded-esteban',name:'Esteban Gualteros',email:'estebangualteros498@gmail.com',password:PRELOADED_PASSWORD},
+    {id:'preloaded-kennway',name:'Kennway Gamer',email:'kennwaygamer26@gmail.com',password:PRELOADED_PASSWORD}
+  ];
+
+  const KEYS = {cart:'techz_cart',users:'techz_users',session:'techz_session',theme:'techz_theme',favorites:'techz_favorites'};
+  const read = (key,fallback=[]) => {try{const value=JSON.parse(localStorage.getItem(key));return value??fallback}catch{return fallback}};
+  const write = (key,value) => localStorage.setItem(key,JSON.stringify(value));
+  const migrateCart = () => {let cart=read(KEYS.cart,null);if(!cart){const old=read('carrito',[]);cart=old.map(item=>{const product=PRODUCTS.find(p=>p.name===item.nombre||p.name===item.name);return product?{id:product.id,quantity:Number(item.cantidad||item.quantity)||1}:null}).filter(Boolean);write(KEYS.cart,cart)}return cart};
+  const getCart = () => migrateCart().filter(item=>PRODUCTS.some(p=>p.id===item.id)&&item.quantity>0);
+  const saveCart = cart => {write(KEYS.cart,cart);window.dispatchEvent(new CustomEvent('cart:updated'))};
+  const addToCart = id => {const product=PRODUCTS.find(p=>p.id===id);if(!product)return {ok:false,message:'Producto no disponible'};const cart=getCart();const item=cart.find(i=>i.id===id);const quantity=item?.quantity||0;if(quantity>=product.stock)return {ok:false,message:'Ya alcanzaste el stock disponible'};item?item.quantity++:cart.push({id,quantity:1});saveCart(cart);return {ok:true,message:`${product.name} se agregó al carrito`}};
+  const setQuantity = (id,quantity) => {const product=PRODUCTS.find(p=>p.id===id);const cart=getCart();const item=cart.find(i=>i.id===id);if(!item||!product)return;if(quantity<=0)saveCart(cart.filter(i=>i.id!==id));else{item.quantity=Math.min(quantity,product.stock);saveCart(cart)}};
+  const cartDetails = () => getCart().map(item=>({...PRODUCTS.find(p=>p.id===item.id),quantity:item.quantity}));
+  const count = () => getCart().reduce((sum,item)=>sum+item.quantity,0);
+  const getFavorites = () => read(KEYS.favorites,[]).filter(id=>PRODUCTS.some(product=>product.id===id));
+  const isFavorite = id => getFavorites().includes(id);
+  const toggleFavorite = id => {const favorites=getFavorites();const exists=favorites.includes(id);write(KEYS.favorites,exists?favorites.filter(item=>item!==id):[...favorites,id]);window.dispatchEvent(new CustomEvent('favorites:updated'));return !exists};
+  const money = value => new Intl.NumberFormat('es-CO',{style:'currency',currency:'COP',maximumFractionDigits:0}).format(value);
+  const toast = (message,type='success') => {const el=document.getElementById('toast');if(!el)return;el.textContent=message;el.className=`toast show ${type}`;clearTimeout(window.__toastTimer);window.__toastTimer=setTimeout(()=>el.className='toast',2800)};
+
+  const normalizeUser = (user,index=0) => ({
+    id:user.id||`legacy-${index}-${Date.now()}`,
+    name:user.name||user.nombre||'Usuario',
+    email:(user.email||user.correo||'').trim().toLowerCase(),
+    password:user.password||''
+  });
+  const getUsers = () => {
+    let users = read(KEYS.users,null);
+    users = users ? users.map(normalizeUser) : read('usuarios',[]).map(normalizeUser);
+    const byEmail = new Map(users.filter(user=>user.email).map(user=>[user.email,user]));
+    PRELOADED_USERS.forEach(user=>byEmail.set(user.email,{...byEmail.get(user.email),...user}));
+    users = [...byEmail.values()];
+    write(KEYS.users,users);
+    return users;
+  };
+
+  const session = () => {let user=read(KEYS.session,null);if(!user){const old=read('sesion',null);if(old){user={id:old.id||'legacy-session',name:old.nombre||old.name||'Usuario',email:old.correo||old.email||''};write(KEYS.session,user)}}return user};
+  const currentTheme = () => read(KEYS.theme,'light');
+  const applyTheme = theme => {document.documentElement.dataset.theme=theme;write(KEYS.theme,theme)};
+  const toggleTheme = () => {const next=currentTheme()==='dark'?'light':'dark';applyTheme(next);updateHeader();toast(next==='dark'?'Modo oscuro activado':'Modo claro activado');return next};
+  const logout = () => {localStorage.removeItem(KEYS.session);localStorage.removeItem('sesion');toast('Sesión cerrada');setTimeout(()=>location.href='index.html',450)};
+  const ensureOptionsMenu = () => {
+    let actions = document.querySelector('.nav-actions');
+    if(!actions){
+      const nav = document.querySelector('.nav');
+      if(!nav) return;
+      actions = document.createElement('div');
+      actions.className = 'nav-actions';
+      const looseLink = nav.querySelector(':scope > .nav-link');
+      if(looseLink) actions.appendChild(looseLink);
+      nav.appendChild(actions);
+    }
+    if(document.getElementById('options-menu')) return;
+    const menu = document.createElement('details');
+    menu.className = 'options-menu';
+    menu.id = 'options-menu';
+    menu.innerHTML = '<summary aria-label="Abrir opciones"><span class="menu-icon">☰</span><span class="menu-label">Opciones</span></summary><div class="options-panel"><button type="button" id="theme-toggle">Modo oscuro</button><a href="login.html" id="menu-login">Iniciar sesión</a><button type="button" id="logout-button">Cerrar sesión</button></div>';
+    actions.appendChild(menu);
+    document.addEventListener('click',event=>{if(!menu.contains(event.target))menu.open=false});
+  };
+  const updateHeader = () => {
+    applyTheme(currentTheme());
+    const badge = document.getElementById('cart-count');
+    if(badge) badge.textContent = count();
+    ensureOptionsMenu();
+    const link = document.getElementById('auth-link');
+    const user = session();
+    if(link&&user){link.textContent=`Hola, ${user.name.split(' ')[0]}`;link.href='#';link.title='Sesión activa';link.onclick=e=>e.preventDefault()}
+    else if(link){link.textContent='Ingresar';link.href='login.html';link.title='Iniciar sesión';link.onclick=null}
+    const themeButton = document.getElementById('theme-toggle');
+    if(themeButton){themeButton.textContent=currentTheme()==='dark'?'Modo claro':'Modo oscuro';themeButton.onclick=toggleTheme}
+    const logoutButton = document.getElementById('logout-button');
+    if(logoutButton){logoutButton.hidden=!user;logoutButton.onclick=logout}
+    const menuLogin = document.getElementById('menu-login');
+    if(menuLogin) menuLogin.hidden = !!user;
+  };
+
+  applyTheme(currentTheme());
+  window.TechStore = {PRODUCTS,PRELOADED_USERS,PRELOADED_PASSWORD,KEYS,read,write,getUsers,getCart,saveCart,addToCart,setQuantity,cartDetails,count,getFavorites,isFavorite,toggleFavorite,money,toast,session,logout,currentTheme,applyTheme,toggleTheme,updateHeader};
+  document.addEventListener('DOMContentLoaded',updateHeader);
+  window.addEventListener('cart:updated',updateHeader);
 })();
